@@ -5,7 +5,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - id: generate                                      # 스텝 ID
-              run: echo "result=Hello" >> "${GITHUB.OUTPUT}"    # 스텝 수준의 출력값
+              run: echo "result=Hello" >> "${GITHUB_OUTPUT}"    # 스텝 수준의 출력값
         outputs:
             result: ${{ steps.generate.outputs.result }}        # 잡 수준의 출력값
         
