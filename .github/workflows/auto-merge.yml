@@ -11,4 +11,6 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}               # 깃허브 CLI 인증 정보
         steps:
             - uses: actions/checkout@v4
-            - run: gh pr merge "${GITHUB_HEAD_REF}" --merge --auto         # 깃허브 CLI로 머지
+            - run: |                                                # 깃허브 CLI로 머지
+                gh pr review "${GITHUB_HEAD_REF}" --approve
+                gh pr merge "${GITHUB_HEAD_REF}" --merge --auto
